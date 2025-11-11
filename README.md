@@ -1,8 +1,11 @@
 # Task-Aware Dynamic Model Optimization for Multi-Task Learning
 📄 IEEE Access 2023 — [DOI: 10.1109/ACCESS.2023.3339793](https://doi.org/10.1109/ACCESS.2023.3339793)
 
-This repository introduces the core ideas and implementation of  
-**Task-Aware Dynamic Model Optimization (DMO)**, a memory-efficient multi-task learning (MTL) framework.
+This repository contains the implementation and resources for
+**Task-Aware Dynamic Model Optimization (DMO)** — a memory-efficient
+multi-task learning framework that groups tasks by inter-task
+similarity and allocates parameters dynamically.
+
 
 ---
 
@@ -90,6 +93,24 @@ Task-Aware-DMO/
   <img src="https://raw.githubusercontent.com/sujin-1013/Task-Aware-DMO/main/assets/visual_decathlon_table.png" width="700"/>
 </p>
 <sub><i>Figure: Visual Decathlon Challenge results table (from IEEE Access paper)</i></sub>
+
+---
+
+## Citation
+
+If you use this work, please cite:
+```bibtex
+@ARTICLE{10345562,
+  author={Choi, Sujin and Jin, Hyundong and Kim, Eunwoo},
+  journal={IEEE Access}, 
+  title={Task-Aware Dynamic Model Optimization for Multi-Task Learning}, 
+  year={2023},
+  volume={11},
+  number={},
+  pages={137709-137717},
+  keywords={Task analysis;Loss measurement;Complexity theory;Optimization;Multitasking;Weight measurement;Training;Resource management;Modeling;Multi-task learning;resource-efficient learning;model optimization},
+  doi={10.1109/ACCESS.2023.3339793}}
+```
 
 ---
 
