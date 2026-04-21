@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying IEEE Access paper."
+title: "Task-Aware Dynamic Model Optimization for Multi-Task Learning"
+authors:
+  - family-names: Choi
+    given-names: Sujin
+  - family-names: Jin
+    given-names: Hyundong
+  - family-names: Kim
+    given-names: Eunwoo
+date-released: 2023-12-05
+url: "https://github.com/sujin-1013/task-aware-DMO"
+license: MIT
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Choi
+      given-names: Sujin
+    - family-names: Jin
+      given-names: Hyundong
+    - family-names: Kim
+      given-names: Eunwoo
+  title: "Task-Aware Dynamic Model Optimization for Multi-Task Learning"
+  journal: "IEEE Access"
+  year: 2023
+  volume: 11
+  start: 137709
+  end: 137717
+  doi: 10.1109/ACCESS.2023.3339793
+  url: "https://doi.org/10.1109/ACCESS.2023.3339793"
