@@ -172,3 +172,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+data/
+checkpoints/
+results/**/*.log
+results/scenario1_run.log
+__pycache__/
+results/**/*.pt

@@ -1,0 +1,15 @@
+{
+  "gid": 3,
+  "tasks": [
+    "mnist"
+  ],
+  "acc": {
+    "mnist": 99.58
+  },
+  "keep_ratios": [
+    0.0015654400850760863
+  ],
+  "surviving": 17481,
+  "dense_rest": 14730,
+  "params": 32211
+}

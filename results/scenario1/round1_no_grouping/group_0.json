@@ -1,0 +1,15 @@
+{
+  "gid": 0,
+  "tasks": [
+    "cifar10"
+  ],
+  "acc": {
+    "cifar10": 91.61
+  },
+  "keep_ratios": [
+    0.06850084865154327
+  ],
+  "surviving": 764943,
+  "dense_rest": 14730,
+  "params": 779673
+}
