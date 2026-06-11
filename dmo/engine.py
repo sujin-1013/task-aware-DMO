@@ -1,7 +1,6 @@
 """Training and evaluation loops. Every run saves one checkpoint file per epoch."""
 from __future__ import annotations
 
-import itertools
 from pathlib import Path
 
 import numpy as np
@@ -53,6 +52,16 @@ def per_sample_losses(net, loader, device) -> np.ndarray:
     return np.concatenate(out)
 
 
+def _endless(loader):
+    """Re-iterate a DataLoader forever with a fresh shuffle on every pass.
+
+    Unlike itertools.cycle, this neither caches batches in memory nor replays
+    the same batch order when a shorter task wraps around within an epoch.
+    """
+    while True:
+        yield from loader
+
+
 def train_group(net, mask, task_loaders, task_test_loaders, epochs, lr, ckpt_dir: Path, device,
                 weight_decay: float = 5e-4):
     """Joint training of a group-specific model with a fixed sparsity mask on the backbone.
@@ -75,9 +84,9 @@ def train_group(net, mask, task_loaders, task_test_loaders, epochs, lr, ckpt_dir
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=epochs)
     tasks = list(task_loaders.keys())
     steps = max(len(dl) for dl in task_loaders.values())
+    iters = {t: _endless(task_loaders[t]) for t in tasks}
     for ep in range(epochs):
         net.train()
-        iters = {t: itertools.cycle(task_loaders[t]) for t in tasks}
         for _ in range(steps):
             loss = 0.0
             for t in tasks:

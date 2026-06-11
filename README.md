@@ -70,7 +70,7 @@ Scenario 1 (single-task training → similarity & difficulty → clique grouping
 difficulty-aware pruning & merging → group training).
 
 ```bash
-pip install torch torchvision networkx
+pip install -r requirements.txt
 
 # end-to-end on two GPUs (singles and groups run in parallel)
 ./run_scenario1_parallel.sh
@@ -106,15 +106,24 @@ numbers: `results/scenario1/metrics.json`.
 ## Repository structure
 
 ```
-dmo/
-  datasets.py    Scenario-1 datasets (72x72, grayscale -> 3ch)
-  model.py       ResNet-18 backbone, group model with per-task heads
-  metrics.py     similarity (S_W, S_L), difficulty, clique grouping
-  pruning.py     difficulty-aware magnitude pruning and group merging
-  engine.py      train/eval loops (per-epoch checkpoints)
-run_scenario1.py          staged pipeline (single / plan / group / report)
-run_scenario1_parallel.sh two-GPU orchestration
-paper/                    published IEEE Access paper (PDF)
+task-aware-DMO/
+├── dmo/                            # DMO library
+│   ├── datasets.py                 #   Scenario-1 datasets (72x72, grayscale -> 3ch)
+│   ├── model.py                    #   ResNet-18 backbone, group model with per-task heads
+│   ├── metrics.py                  #   similarity (S_W, S_L), difficulty, clique grouping
+│   ├── pruning.py                  #   difficulty-aware magnitude pruning, group merging
+│   ├── engine.py                   #   train/eval loops (per-epoch checkpoints)
+│   └── pipeline.py                 #   pipeline stages: single / plan / group / report
+├── run_scenario1.py                # CLI entry point for the pipeline stages
+├── run_scenario1_parallel.sh       # two-GPU orchestration of the full pipeline
+├── results/
+│   └── scenario1/                  # reproduction outputs (plan.json, metrics.json, ...)
+│       └── round1_no_grouping/     #   ablation: same pipeline without task grouping
+├── assets/                         # overview figure, result table image
+├── paper/                          # published IEEE Access paper (PDF)
+├── requirements.txt
+├── CITATION.cff
+└── LICENSE
 ```
 
 ## Citation
