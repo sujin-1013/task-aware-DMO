@@ -1,4 +1,8 @@
-# Task-Aware Dynamic Model Optimization for Multi-Task Learning
+# Task-Aware DMO
+
+> **Task-Aware Dynamic Model Optimization for Multi-Task Learning**\
+> Sujin Choi, Hyundong Jin, Eunwoo Kim\
+> Chung-Ang University · *IEEE Access*, vol. 11, 2023
 
 [![IEEE Access](https://img.shields.io/badge/IEEE%20Access-2023-00629B)](https://doi.org/10.1109/ACCESS.2023.3339793)
 [![DOI](https://img.shields.io/badge/DOI-10.1109%2FACCESS.2023.3339793-blue)](https://doi.org/10.1109/ACCESS.2023.3339793)
@@ -6,8 +10,9 @@
 **Dynamic Model Optimization (DMO)** is a memory-efficient multi-task learning
 framework. It measures inter-task similarity from weight and loss statistics,
 groups similar tasks by maximal-clique detection, and allocates parameters to
-each group with difficulty-aware pruning — producing lightweight group-specific
-subnetworks that cut parameters by over 80% on average at comparable accuracy.
+each group with difficulty-aware pruning, producing lightweight group-specific
+subnetworks. On the four-task scenario it keeps **89.73** average accuracy
+against 89.95 for single-task learning with **0.15×** the parameters.
 
 <p align="center">
   <img src="assets/dmo_overview.png" width="700"/>
@@ -23,8 +28,8 @@ subnetworks that cut parameters by over 80% on average at comparable accuracy.
   ratio 1/exp(d/τ), so easy tasks keep few weights and hard tasks keep more.
 - **Group-specific subnetworks** — surviving parameters are merged within each
   group (higher-difficulty tasks take precedence on overlaps) and trained jointly.
-- **84% fewer parameters** on the four-task scenario and **0.11× parameters** on
-  Visual Decathlon at accuracy comparable to single-task learning.
+- **0.14× parameters** on 20 CIFAR-100 tasks at 83.10 average accuracy (single-task
+  80.47) and **0.11×** on Visual Decathlon at comparable accuracy.
 
 ## Results
 
@@ -143,4 +148,5 @@ task-aware-DMO/
 ## License & contact
 
 Code released under the [MIT License](LICENSE).
-Sujin Choi — popo2419@naver.com
+
+Sujin Choi — Korea Electronics Technology Institute (KETI) · [@sujin-1013](https://github.com/sujin-1013)
